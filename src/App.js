@@ -1,13 +1,31 @@
 import React from "react";
-import { Navbar } from "./components/Navbar/Navbar";
+import Navbar from "./components/Navbar";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
+//import generateFakeData from "./utilities/fakergenerator";
+//import Person from "./components/Person";
+//import Table from "./components/Table";
+
+//Routes/pages
+import Home from "./routes/Home/Home";
+import News from "./routes/News/News";
 
 const App = () => {
+
     return (
-        <div>
-            <Navbar/>
-            <h1>Aplicación cripto</h1>
+        <Router>  
+        <Navbar/>
+        <div className="app">         
+        <Switch>
+                <Route exact path="/">
+                    <Home />
+                </Route>
+                <Route exact path="/news">
+                    <News />
+                </Route>
+        </Switch>            
         </div>
-        
+        </Router>           
     )
 }
 
