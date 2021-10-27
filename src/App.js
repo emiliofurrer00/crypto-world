@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 //Routes/pages
 import Home from "./routes/Home/Home";
-import News from "./routes/News/News";
+import News from "./routes/News/NewsView";
 
 const App = () => {
 

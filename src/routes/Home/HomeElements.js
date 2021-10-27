@@ -31,6 +31,9 @@ grid-column: 1 / 13;
             @media screen and (max-width: 720px) {
                 font-size: 0.8em;
                 margin: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
         }
         & li span {

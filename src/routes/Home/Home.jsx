@@ -37,13 +37,13 @@ function Home() {
         <>
             <MainContainer>
                 <Stats>
-                    {!isStatsQueryFetching &&
+                    {!isStatsQueryFetching && stats &&
                     <ul>
-                        <li colSpan={3}> Total Coins: <br/><SiBitcoinsv /><span>{stats?.data['totalCoins']}</span></li>
-                        <li colSpan={3}> Total Markets: <br/><SiMarketo /><span>{stats?.data['totalMarkets']}</span></li>
-                        <li colSpan={3}> Total Exchanges: <br/><BsCurrencyExchange /><span>{stats?.data['totalExchanges']}</span></li>
-                        <li colSpan={3}> Total Market Cap: <br/><SiBitcoinsv /><span>{millify(stats?.data['totalMarketCap'])}</span></li>
-                        <li colSpan={3}> Total 24h Volume: <br/><SiBitcoinsv /><span>{millify(stats?.data['total24hVolume'])}</span></li>
+                        <li colSpan={3}> Total Coins: <br/><span><SiBitcoinsv />{stats?.data['totalCoins']}</span></li>
+                        <li colSpan={3}> Total Markets: <br/><span><SiMarketo />{stats?.data['totalMarkets']}</span></li>
+                        <li colSpan={3}> Total Exchanges: <br/><span><BsCurrencyExchange />{stats?.data['totalExchanges']}</span></li>
+                        <li colSpan={3}> Total Market Cap: <br/><span><SiBitcoinsv />{millify(stats?.data['totalMarketCap'])}</span></li>
+                        <li colSpan={3}> Total 24h Volume: <br/><span><SiBitcoinsv />{millify(stats?.data['total24hVolume'])}</span></li>
                     </ul>}
                 </Stats>
                 <Header>
