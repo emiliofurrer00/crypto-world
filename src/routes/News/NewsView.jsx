@@ -36,6 +36,7 @@ function NewsView() {
     return (
         <MainContainer>
             <SearchSection>
+                <h4>Search news by cryptocurrency</h4>
                 <SearchBar 
                     coins={isGetCryptosQueryFetching ? null : coins} 
                     handleSelect={handleSelectChange}

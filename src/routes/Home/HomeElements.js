@@ -136,7 +136,7 @@ export const CryptoCard = styled.div`
     min-width: 180px;
     min-height: 200px; 
     background-color: white;
-    transition: transform 300ms, box-shadow 300ms;
+    transition: transform 300ms, box-shadow 300ms, background-color 300ms;
     cursor: pointer;
     border-radius: 4px;
     & p {

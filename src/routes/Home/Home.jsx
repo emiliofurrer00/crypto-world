@@ -1,10 +1,12 @@
 import React, { useEffect, useRef } from 'react'
+
+//Components
 import { MainContainer, Header, SimplifiedCoins, SimplifiedNews, StyledTable, CryptoCard, Stats, SignUpBtn} from './HomeElements'
+import { Crypto24Change } from '../../components/Crypto24Change/Crypto24Change'
 
 import millify from 'millify';
 
 //icons
-import { AiFillCaretDown, AiFillCaretUp } from 'react-icons/ai'
 import { SiBitcoinsv, SiMarketo } from 'react-icons/si'
 import { BsCurrencyExchange } from 'react-icons/bs'
 import { RiBitCoinLine } from 'react-icons/ri'
@@ -88,14 +90,8 @@ function Home() {
                                     <strong>#{coin.rank}</strong><img style={{width: 40, display: 'inline-block'}}src={coin.iconUrl}/><span><i>{coin.symbol}</i></span>
                                 </div>
                                 <h3>{coin.name}</h3>
-                                <p>${millify(coin.price, {precision: 2})}</p>
-                                <p className="value" style={{color: coin.change < 0 ? 'red' : 'green'}}>{
-                                                coin.change < 0 ? 
-                                                    <AiFillCaretDown style={{color: 'red'}}/> : 
-                                                    <AiFillCaretUp style={{color: 'green'}}/>
-                                                }
-                                                {coin.change}%
-                                </p>
+                                <p>Price: ${millify(coin.price, {precision: 2})}</p>
+                                <Crypto24Change isPositive={coin.change > 0} coinChange={coin.change} />
                             </CryptoCard>
                         )
                     })}
