@@ -1,6 +1,6 @@
 # CRYPTO-WORLD 🚀
 
-![Main Page Screenshot](./public/mainpage.png)
+![Main Page Screenshot](mainpage.png)
 
 This is a simple web page whose objective is to provide access to the main stats and info around cryptocurrencies and exchanges.
 It's still a work-in-progress and receiving constant improvments, so I'm open to any kind of suggestions and constructive criticism!
