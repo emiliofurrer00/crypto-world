@@ -4,12 +4,13 @@ import styled from "styled-components";
 export const MainContainer = styled.div`
     display: grid;    
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(8, 100px);
+    grid-template-rows: 80px repeat(7, 100px);
     @media screen and (max-width: 720px){
         display: flex;
         flex-direction: column;
+        justify-content: center;
         position: relative;
-        top: 80px;
+        top: 70px;
     }
 `
 
@@ -18,7 +19,9 @@ export const SearchSection = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: honeydew;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.3);
     grid-row: 1 / 2;
     grid-column: 1 / 13;
 `

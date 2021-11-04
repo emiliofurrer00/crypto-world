@@ -44,12 +44,13 @@ export const NavLink = styled(Link)`
         width: 25px;
         height: 25px;
     }
-    &:active{
+    &:active {
         color: #15cdfc
     }
-    &:hover{
-        color: #00adab;
+    &:hover {
+        color: rgba(50,185,190, 1);
     }
+    
     @media screen and (max-width: 720px){
         transform: scale(0.9);
         display: flex;
@@ -79,7 +80,7 @@ export const NavMenu = styled.nav`
     }
 `
 
-export const Bars = styled(FaBars)`
+export const Bars = styled.div`
     color: white;
     display: none;
 
@@ -90,7 +91,7 @@ export const Bars = styled(FaBars)`
         top: 0;
         font-size: 1.8rem;
         cursor: pointer;
-        transform: translate(-100%, 75%);
+        transform: translate(-100%, 40%);
         z-index: 11;
     }
 `

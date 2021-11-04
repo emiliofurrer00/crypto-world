@@ -5,6 +5,7 @@ import { AiFillCaretDown, AiFillCaretUp } from 'react-icons/ai'
 
 const Value = styled.p`
     color: ${props => props.isPositive ? "green" : "red"};
+    display: inline;
 `
 
 export function Crypto24Change({isPositive, coinChange}) {

@@ -1,12 +1,23 @@
+import moment from "moment";
 import styled from "styled-components";
+import { Link } from "../../routes/Home/HomeElements";
 
-const StyledNews = styled.div`
+//media
+import stockImage from './stockImage.png';
+
+//Main container
+const StyledNews = styled.a`
+    text-decoration: none;
+    color: black;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    background-color: azure;
-    min-width: 350px;
-    max-width: 45%;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 10px;
+    min-width: 300px;
+    max-width: 30%;
+    max-height: 400px;
     padding: 15px;
     margin: 10px;
     transition: transform 0.4s, box-shadow 0.4s;
@@ -18,47 +29,62 @@ const StyledNews = styled.div`
         box-shadow: 1px 1px 4px black;
     }
 `
-const Image = styled.img`
-    display: inline-block;
-    width: 100px;
-    height: 100px;
-`
-const NewsTitle = styled.h4`
-    display: inline;
-    padding-left: 10px;
-    font-size: 1.05em;
-`
-
+//Header
 const NewsHeader = styled.div`
     display: flex;
     align-items: flex-start;
 `
+const Image = styled.img`
+    display: inline-block;
+    width: 85px;
+    height: 85px;
+`
+const NewsTitle = styled.h4`
+    display: inline;
+    padding-left: 10px;
+    font-size: 1.03em;
+`
+//Description
+const NewsDescription = styled.p`
+`
+
+//Footer
 const NewsFooter = styled.div`
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
     font-size: 12px;
+    margin-top: 10px;
+`
+const ProviderInfo = styled.a`
+    display: flex;
+    & img {
+        width: 16px;
+        margin-right: 5px;
+    }
 `
 
 
 export const News = ({news}) => {
     return (
-        <StyledNews>
+        <StyledNews href={news.url} rel="noreferrer" target="_blank">
             <NewsHeader>
                 <Image src={news?.image?.thumbnail?.contentUrl}/>
                 <NewsTitle>{news.name}</NewsTitle> 
             </NewsHeader>
-            <p>{news.description}</p>
+            <NewsDescription>{news.description}</NewsDescription>
             <NewsFooter>
-                <span>{formatTime(news.datePublished)}</span>
-                <span>{news.provider[0].name}</span>
+                <span>{moment(news.datePublished).startOf('ss').fromNow()}</span>
+                <ProviderInfo>
+                    <img src={news.provider[0]?.image?.thumbnail?.contentUrl || stockImage } />
+                    <span>{news.provider[0].name}</span>
+                </ProviderInfo>
             </NewsFooter>
+            
         </StyledNews>
     )
 }
-
-const formatTime = (rawDate) => {
-    const date = new Date(`${rawDate}`);
-    return date.toTimeString().split(" ")[0];
-
-}
+//<a href={news.url} rel="noreferrer" target="_blank" style={{position: 'absolute', width: '90%', height: '90%'}} />
+// const formatTime = (rawDate) => {
+//     const date = new Date(`${rawDate}`);
+//     return date.toTimeString().split(" ")[0];
+// }

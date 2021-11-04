@@ -10,6 +10,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "./routes/Home/Home";
 import News from "./routes/News/NewsView";
 import Cryptocurrencies from "./routes/Cryptocurrencies/Cryptocurrencies"
+import CryptoDetails from "./routes/CryptoDetails/CryptoDetails";
+import Exchanges from "./routes/Exchanges/Exchanges";
 
 const App = () => {
 
@@ -26,6 +28,12 @@ const App = () => {
                 </Route>
                 <Route exact path="/cryptocurrencies">
                     <Cryptocurrencies />
+                </Route>
+                <Route path="/cryptocurrencies/:id">
+                    <CryptoDetails />
+                </Route>
+                <Route path="/exchanges">
+                    <Exchanges />
                 </Route>
         </Switch>            
         </div>

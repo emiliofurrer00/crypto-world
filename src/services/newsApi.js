@@ -1,6 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-
 const headers = {
     'x-bingapis-sdk': 'true',
     'x-rapidapi-host': 'bing-news-search1.p.rapidapi.com',
@@ -15,7 +14,7 @@ export const newsApi = createApi({
     baseQuery: fetchBaseQuery({baseUrl: newsBaseUrl}),
     endpoints: (builder) => ({
         getNews: builder.query({
-            query: (searchTerm, count = 10) => createRequest(`/search?q=${searchTerm}-crypto&setLang=EN&safeSearch=off&freshness=Day&count=${count}`)
+            query: (searchTerm, count = 18) => createRequest(`/search?q=${searchTerm}-crypto&setLang=EN&safeSearch=off&freshness=Day&count=${count}`)
         })
     })
 })

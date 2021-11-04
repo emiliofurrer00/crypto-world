@@ -1,6 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
+
+export const Link = styled.a`
+    text-decoration: none;
+`
+
 export const MainContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -94,6 +99,7 @@ export const SignUpBtn = styled.button`
     transition: all 0.2s;
     margin: 15px 0;
     font-size: 1.3em;
+    cursor: pointer;
 
     &:hover{
         opacity: 0.9
@@ -126,8 +132,9 @@ export const SimplifiedCoins = styled.div`
         margin: 10px;
     }
 `
-export const CryptoCard = styled.div`
+export const CryptoCard = styled(Link)`
     flex-grow: 1;
+    color: black;
     display: flex;    
     flex-direction: column;
     justify-content: space-around;
@@ -150,6 +157,7 @@ export const CryptoCard = styled.div`
 
 
 export const SimplifiedNews = styled.div`
+    border-collapse: collapse;
     background-color: #EEE;
     grid-row: 5 / 10;
     grid-column: 1 / 6;
@@ -166,9 +174,9 @@ export const SimplifiedNews = styled.div`
         height: 100%;
         background-color: white;
     }
-    & tr td {
+    & tr td, th {
         padding: 5px;
-        border: 1px solid rgba(0,0,0,0.1);
+        border-bottom: 1px solid rgba(0,0,0,0.1);
     }
     & ul li {
         list-style: none;

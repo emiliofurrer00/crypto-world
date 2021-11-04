@@ -21,22 +21,16 @@ export const cryptoApi = createApi({
         }),
         getExchanges: builder.query({
             query: (parameter = "") => createRequest(`/exchanges${parameter}`)
-        })
+        }),
+        getCryptoDetails: builder.query({
+            query: (coinId) => createRequest(`/coin/${coinId}`)
+        }),
+        getCryptoHistory: builder.query({
+            query: ({coinId, timeFrame}) => createRequest(`/coin/${coinId}/history/${timeFrame}`)
+        }),
     })
 })
 
 
 
-export const { useGetCryptosQuery, useGetStatsQuery, useGetExchangesQuery } = cryptoApi
-
-
-/*var options = {
-    method: 'GET',
-    url: '',
-    params: {q: '<REQUIRED>', freshness: 'Day', textFormat: 'Raw', safeSearch: 'Off'},
-    headers: {
-      'x-bingapis-sdk': 'true',
-      'x-rapidapi-host': 'bing-news-search1.p.rapidapi.com',
-      'x-rapidapi-key': '238c0c483dmshb7e242596476834p192dcajsn65239b867053'
-    }
-  };*/
+export const { useGetCryptosQuery, useGetStatsQuery, useGetExchangesQuery, useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } = cryptoApi

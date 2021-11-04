@@ -9,7 +9,7 @@ import { useGetCryptosQuery } from '../../services/cryptoApi'
 function Cryptocurrencies() {
     const {data: coins, isFetching } = useGetCryptosQuery(50);
     if (isFetching){
-        return "Loading..."
+        return <h1>Loading...</h1>
     }
     return (
         <MainContainer>
