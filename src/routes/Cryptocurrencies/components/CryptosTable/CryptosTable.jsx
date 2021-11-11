@@ -67,7 +67,7 @@ function CryptosTable({coins}) {
                             <td>{coin.rank}</td>
                             <td>
                                 <Link to={`/cryptocurrencies/${coin.rank}`}>
-                                    <img style={{width: 20, display: 'inline-block', marginRight: 10}}src={coin.iconUrl}/>
+                                    <img alt="" style={{width: 20, display: 'inline-block', marginRight: 10}}src={coin.iconUrl}/>
                                     <strong>{coin.name}</strong>
                                 </Link>   
                             </td> 

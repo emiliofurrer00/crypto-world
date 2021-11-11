@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 
 //Components
-import { MainContainer, Header, SimplifiedCoins, SimplifiedNews, StyledTable, CryptoCard, Stats, SignUpBtn, Link} from './HomeElements'
+import { MainContainer, Header, SimplifiedCoins, SimplifiedNews, CryptoCard, Stats, SignUpBtn } from './HomeElements'
 import { Crypto24Change } from '../../components/Crypto24Change/Crypto24Change'
 
 import millify from 'millify';
@@ -30,11 +30,11 @@ function Home() {
                 <Stats>
                     {!isStatsQueryFetching && stats &&
                     <ul>
-                        <li colSpan={3}> Total Coins: <br/><span><SiBitcoinsv style={{marginRight: 5}}/>{stats?.data['totalCoins']}</span></li>
-                        <li colSpan={3}> Total Markets: <br/><span><SiMarketo style={{marginRight: 5}}/>{stats?.data['totalMarkets']}</span></li>
-                        <li colSpan={3}> Total Exchanges: <br/><span><BsCurrencyExchange style={{marginRight: 5}}/>{stats?.data['totalExchanges']}</span></li>
-                        <li colSpan={3}> Total Market Cap: <br/><span><SiBitcoinsv style={{marginRight: 5}}/>{millify(stats?.data['totalMarketCap'])}</span></li>
-                        <li colSpan={3}> Total 24h Volume: <br/><span><SiBitcoinsv style={{marginRight: 5}}/>{millify(stats?.data['total24hVolume'])}</span></li>
+                        <li key={1} colSpan={3}> Total Coins: <br/><span><SiBitcoinsv style={{marginRight: 5}}/>{stats?.data['totalCoins']}</span></li>
+                        <li key={2} colSpan={3}> Total Markets: <br/><span><SiMarketo style={{marginRight: 5}}/>{stats?.data['totalMarkets']}</span></li>
+                        <li key={3} colSpan={3}> Total Exchanges: <br/><span><BsCurrencyExchange style={{marginRight: 5}}/>{stats?.data['totalExchanges']}</span></li>
+                        <li key={4} colSpan={3}> Total Market Cap: <br/><span><SiBitcoinsv style={{marginRight: 5}}/>{millify(stats?.data['totalMarketCap'])}</span></li>
+                        <li key={5} colSpan={3}> Total 24h Volume: <br/><span><SiBitcoinsv style={{marginRight: 5}}/>{millify(stats?.data['total24hVolume'])}</span></li>
                     </ul>}
                 </Stats>
                 <Header>
@@ -60,7 +60,7 @@ function Home() {
                                     return(
                                         <tr>
                                             <td>#{exchange.rank}</td>
-                                            <td><img style={{width: 20, height: 20, display: 'inline-block', marginRight: 10}} src={exchange.iconUrl}/>{exchange.name}</td>
+                                            <td><img alt='' style={{width: 20, height: 20, display: 'inline-block', marginRight: 10}} src={exchange.iconUrl}/>{exchange.name}</td>
                                             <td>${millify(exchange.volume, {precision: 5})}</td>
                                         </tr>
                                     )
@@ -74,10 +74,9 @@ function Home() {
                     <div className="coins-container">
                     {data?.data?.coins.map(coin => {
                         return ( 
-                            <CryptoCard href={`/cryptocurrencies/${coin.rank}`}>
-                                
+                            <CryptoCard href={`/cryptocurrencies/${coin.rank}`}>             
                                 <div style={{display: 'flex', justifyContent: 'space-around'}}>
-                                    <strong>#{coin.rank}</strong><img style={{width: 40, display: 'inline-block'}}src={coin.iconUrl}/><span><i>{coin.symbol}</i></span>
+                                    <strong>#{coin.rank}</strong><img alt='' style={{width: 40, display: 'inline-block'}}src={coin.iconUrl}/><span><i>{coin.symbol}</i></span>
                                 </div>
                                 <h3>{coin.name}</h3>
                                 <p> ${millify(coin.price, {precision: 2})}</p>

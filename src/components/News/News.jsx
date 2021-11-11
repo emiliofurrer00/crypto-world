@@ -1,6 +1,5 @@
 import moment from "moment";
 import styled from "styled-components";
-import { Link } from "../../routes/Home/HomeElements";
 
 //media
 import stockImage from './stockImage.png';
@@ -75,7 +74,7 @@ export const News = ({news}) => {
             <NewsFooter>
                 <span>{moment(news.datePublished).startOf('ss').fromNow()}</span>
                 <ProviderInfo>
-                    <img src={news.provider[0]?.image?.thumbnail?.contentUrl || stockImage } />
+                    <img alt="" src={news.provider[0]?.image?.thumbnail?.contentUrl || stockImage } />
                     <span>{news.provider[0].name}</span>
                 </ProviderInfo>
             </NewsFooter>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { NavLink, Bars, NavMenu, NavBtn, Nav, NavBtnLink, Logo } from './NavbarElements'
+import { NavLink, Bars, NavMenu, NavBtn, Nav, NavBtnLink } from './NavbarElements'
 
 //icons
 import { RiBitCoinLine } from 'react-icons/ri'

@@ -1,10 +1,6 @@
 import React from "react";
 import Navbar from "./components/Navbar";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
-//import generateFakeData from "./utilities/fakergenerator";
-//import Person from "./components/Person";
-//import Table from "./components/Table";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 //Routes/pages
 import Home from "./routes/Home/Home";
