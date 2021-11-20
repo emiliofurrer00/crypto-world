@@ -54,16 +54,18 @@ function CryptosTable({coins}) {
     return (
         <Table>
             <thead>
-                <th>Rank</th>
-                <th>Coin Name</th>
-                <th>Price</th>
-                <th>24h Change</th>
-                <th>Market Cap</th>
+                <tr>
+                    <th>Rank</th>
+                    <th>Coin Name</th>
+                    <th>Price</th>
+                    <th>24h Change</th>
+                    <th>Market Cap</th>
+                </tr>
             </thead>
             <tbody>
-                {coins && coins.map(coin => {
+                {coins && coins.map((coin, index)=> {
                     return(
-                        <tr>
+                        <tr key={index} onClick={() => window.location=`/cryptocurrencies/${coin.rank}`}>
                             <td>{coin.rank}</td>
                             <td>
                                 <Link to={`/cryptocurrencies/${coin.rank}`}>

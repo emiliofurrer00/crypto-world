@@ -26,11 +26,6 @@ function CryptoDetails() {
         setTimeFrame(e.target.value)
     }
 
-    useEffect(() => {
-        console.log(timeFrame);
-        console.log(coinHistory);
-    }, [timeFrame])
-    
     if (isGetCryptoDetailsQueryFetching){
         return <h1>Loading...</h1>
     }
@@ -42,7 +37,7 @@ function CryptoDetails() {
             <HeaderContainer>   
             <h1>{coin.name} ({coin.slug})</h1>
             <div>
-                <img style={{width: 20, display: 'inline-block', marginRight: 10}}src={coin.iconUrl}/>
+                <img alt="" style={{width: 20, display: 'inline-block', marginRight: 10}}src={coin.iconUrl}/>
                 <span>{coin.symbol}</span>
             </div>
             </HeaderContainer>

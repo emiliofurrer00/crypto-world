@@ -54,7 +54,7 @@ const NewsFooter = styled.div`
     font-size: 12px;
     margin-top: 10px;
 `
-const ProviderInfo = styled.a`
+const ProviderInfo = styled.div`
     display: flex;
     & img {
         width: 16px;

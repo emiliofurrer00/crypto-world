@@ -6,7 +6,6 @@ export const MainContainer = styled.div`
     background-color: #EEE;;
     padding: 10px;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: 80px repeat(5, 1fr);
     grid-gap: 10px;
     @media screen and (max-width: 720px){
         display: flex;
