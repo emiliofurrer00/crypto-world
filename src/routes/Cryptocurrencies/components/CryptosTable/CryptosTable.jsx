@@ -66,16 +66,16 @@ function CryptosTable({coins}) {
                 {coins && coins.map((coin, index)=> {
                     return(
                         <tr key={index} onClick={() => window.location=`/cryptocurrencies/${coin.rank}`}>
-                            <td>{coin.rank}</td>
+                            <td>{index+1}</td>
                             <td>
                                 <Link to={`/cryptocurrencies/${coin.rank}`}>
-                                    <img alt="" style={{width: 20, display: 'inline-block', marginRight: 10}}src={coin.iconUrl}/>
+                                    <img alt="" style={{width: 20, display: 'inline-block', marginRight: 10}}src={coin.image}/>
                                     <strong>{coin.name}</strong>
                                 </Link>   
                             </td> 
-                            <td>${millify(coin.price, {precision: 2})}</td>
-                            <td><Crypto24Change coinChange={coin.change} isPositive={coin.change > 0}></Crypto24Change></td>
-                            <td>${millify(coin.marketCap, {precision: 2})}</td>
+                            <td>${millify(coin.current_price, {precision: 2})}</td>
+                            <td><Crypto24Change coinChange={coin.price_change_percentage_24h.toFixed(2)} isPositive={coin.price_change_percentage_24h > 0}></Crypto24Change></td>
+                            {/* <td>${millify(coin.marketCap, {precision: 2})}</td> */}
                         </tr>
                     )
                 })}

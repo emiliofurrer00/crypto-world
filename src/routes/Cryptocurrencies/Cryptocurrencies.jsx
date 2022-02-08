@@ -7,13 +7,13 @@ import { useGetCryptosQuery } from '../../services/cryptoApi'
 
 
 function Cryptocurrencies() {
-    const {data: coins, isFetching } = useGetCryptosQuery(50);
+    const {data: coins, isFetching } = useGetCryptosQuery();
     if (isFetching){
         return <h1>Loading...</h1>
     }
     return (
         <MainContainer>
-            <CryptosTable coins={coins.data.coins} />
+            <CryptosTable coins={coins} />
         </MainContainer>
     )
 }

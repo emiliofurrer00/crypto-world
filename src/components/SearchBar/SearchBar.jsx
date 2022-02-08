@@ -17,7 +17,7 @@ export function SearchBar({coins, handleSelect}) {
     return (
         <>
         <StyledSelectBar name="news-query" onChange={handleSelect}>
-            {coins && coins?.data?.coins?.map((coin, index) => <option key={index} value={parseString(coin.name)}>{coin.name}</option>)}
+            {coins && coins?.map((coin, index) => <option key={index} value={parseString(coin.name)}>{coin.name}</option>)}
         </StyledSelectBar>
         </>
     )

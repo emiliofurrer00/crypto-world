@@ -13,16 +13,24 @@ import { RiBitCoinLine } from 'react-icons/ri'
 import { BiCoinStack } from 'react-icons/bi'
 
 import { useGetCryptosQuery, useGetStatsQuery, useGetExchangesQuery } from '../../services/cryptoApi'
+import { useEffect } from 'react';
 
 
 function Home() {
     const { data, isFetching: isCryptosQueryFetching } = useGetCryptosQuery();
     const { data: stats, isFetching: isStatsQueryFetching } = useGetStatsQuery();
-    const { data: exchanges, isFetching: isExchangesQueryFetching } = useGetExchangesQuery('?limit=10');
+    const { data: exchanges, isFetching: isExchangesQueryFetching } = useGetExchangesQuery();
     
+    useEffect(() => {
+        if (data && !isCryptosQueryFetching){
+            console.log(data)
+        }
+    }, [data])
+
     if (isCryptosQueryFetching || isStatsQueryFetching || isExchangesQueryFetching){
         return <h1>Loading...</h1>
     }
+
 
     return (
         <>
@@ -56,12 +64,12 @@ function Home() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {exchanges?.data?.exchanges.map(exchange => {
+                                {exchanges?.slice(0, 10).map((exchange, index) => {
                                     return(
                                         <tr>
-                                            <td>#{exchange.rank}</td>
-                                            <td><img alt='' style={{width: 20, height: 20, display: 'inline-block', marginRight: 10}} src={exchange.iconUrl}/>{exchange.name}</td>
-                                            <td>${millify(exchange.volume, {precision: 5})}</td>
+                                            <td>#{index + 1}</td>
+                                            <td><img alt='' style={{width: 20, height: 20, display: 'inline-block', marginRight: 10}} src={exchange.image}/>{exchange.name}</td>
+                                            <td>${millify(exchange.trade_volume_24h_btc, {precision: 5})}</td>
                                         </tr>
                                     )
                                 })}
@@ -72,15 +80,15 @@ function Home() {
                 <SimplifiedCoins>
                     <h2>Top cryptocurrencies</h2>
                     <div className="coins-container">
-                    {data?.data?.coins.map(coin => {
+                    {data?.slice(0, 10).map((coin, index) => {
                         return ( 
-                            <CryptoCard href={`/cryptocurrencies/${coin.rank}`}>             
+                            <CryptoCard href={`/cryptocurrencies/${coin.index}`}>             
                                 <div style={{display: 'flex', justifyContent: 'space-around'}}>
-                                    <strong>#{coin.rank}</strong><img alt='' style={{width: 40, display: 'inline-block'}}src={coin.iconUrl}/><span><i>{coin.symbol}</i></span>
+                                    <strong>#{index+1}</strong><img alt='' style={{width: 40, display: 'inline-block'}}src={coin.image}/><span><i>{coin.symbol}</i></span>
                                 </div>
                                 <h3>{coin.name}</h3>
-                                <p> ${millify(coin.price, {precision: 2})}</p>
-                                <Crypto24Change isPositive={coin.change > 0} coinChange={coin.change} /> 
+                                <p> ${millify(coin.current_price, {precision: 2})}</p>
+                                <Crypto24Change isPositive={coin.price_change_percentage_24h > 0} coinChange={coin.price_change_percentage_24h.toFixed(2)} /> 
                             </CryptoCard>
                         )
                     })}

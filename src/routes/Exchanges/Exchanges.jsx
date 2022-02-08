@@ -32,7 +32,7 @@ function Exchanges() {
                 <th>Market Share</th>
             </thead>
             <tbody>
-                {data && data.data.exchanges.map(exchange => <ExchangeTableRow exchange={exchange}/>)}
+                {data && data?.map((exchange, index) => <ExchangeTableRow exchange={exchange} rank={index+1}/>)}
             </tbody>
         </Table>
         </MainContainer>
